@@ -54,7 +54,7 @@ def crawl(q, result, i):
 
             #html = urllib.request.urlopen(work[1]).read()
 
-            soup = BeautifulSoup(html, "lxml")
+            soup = BeautifulSoup(html)
 
             for script in soup(["script", "style"]):
                 script.extract()
