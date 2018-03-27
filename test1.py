@@ -103,7 +103,6 @@ y_pred_class = model1.predict(X_test_dtm)
 print(y_pred_class)
 df["prediction"]= y_pred_class
 p = df.drop(['content'], axis=1)
-print(df)
 
 p.to_csv("resultsdomains4.csv")
 
