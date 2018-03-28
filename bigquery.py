@@ -13,8 +13,8 @@ import uuid
 
 import googleapiclient.discovery
 from pandas.io import gbq
-
-
+import datetime
+from datetime import timedelta
 
 # [START async_query]
 def async_query(
@@ -74,9 +74,17 @@ def main(
     # Construct the service object for interacting with the BigQuery API.
     bigquery = googleapiclient.discovery.build('bigquery', 'v2')
     # [END build_service]
+    inputDate = input("Please enter the date in YYYY-MM-DD format ")
+    year, month, day = map(int, inputDate.split('-'))
+    date1 = datetime.date(year, month, day)
+    week1=date1.isocalendar()[1]
+    d=date1-timedelta(days=8)
+    date2=d.strftime('%Y-%m-%d')
+
+    query_string = "SELECT domain,bundle, sum(demand_side_revenue) as demand_side_revenue, sum(auctionss) as auctions, Min(week) as week, count(week) as weekCount, FROM(SELECT domain, bundle, sum(available_inventory) as auctionss , week(date) as week, sum(demand_side_revenue) as demand_side_revenue FROM TABLE_DATE_RANGE(reporting_hudson_views.stats_daily_, TIMESTAMP(\'"+ str(date2)+"\'), TIMESTAMP(\'"+str(inputDate)+ "\')) group by week, domain,bundle ) group by domain,bundle having bundle is null and weekCount==1 and week== "+ str(week1) + "order by demand_side_revenue desc"
+    print(query_string)
 
     # Submit the job and wait for it to complete.
-    query_string = "SELECT domain, sum(demand_side_revenue) as demand_side_revenue, sum(auctionss) as auctions, Min(week) as week, count(week) as weekCount, FROM(SELECT domain, sum(available_inventory) as auctionss , week(date) as week, sum(demand_side_revenue) as demand_side_revenue FROM TABLE_DATE_RANGE(reporting_hudson_views.stats_daily_, TIMESTAMP('2018-01-01'), TIMESTAMP('2018-01-31') ) group by week, domain ) group by domain having ((domain) like ('%sex%') or (domain) like ('%porn%')) order by demand_side_revenue desc"
     use_legacy_sql
     query_job = async_query(
         bigquery,
