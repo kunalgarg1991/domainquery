@@ -112,10 +112,10 @@ def main(
         num_retries,
         use_legacy_sql)
 
-    df1 = gbq.read_gbq(query_string, project_id=project_id)
+    df = gbq.read_gbq(query_string, project_id=project_id)
     #print(df1.head())
-    df1.to_csv("bq.csv")
-    df=df1.head(10)
+    
+    
 
 
     poll_job(bigquery, query_job)
