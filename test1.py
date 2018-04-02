@@ -5,7 +5,6 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn import metrics
 from bs4 import BeautifulSoup
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.cross_validation import train_test_split
 import pickle	
 from threading import Thread
 import queue

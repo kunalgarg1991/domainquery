@@ -1,11 +1,2 @@
-,domain,bundle,demand_side_revenue,auctions,week,weekCount,url,category,prediction
-0,numista.com,,12.26953057040001,4414,6,1,http://www.numista.com,category,1
-1,skyje.com,,1.8309450402000003,13949,6,1,http://www.skyje.com,category,0
-2,progressivedirect.com,,1.7529361638999998,6335,6,1,http://www.progressivedirect.com,category,0
-3,wcti12.com,,0.18628593870000004,315,6,1,http://www.wcti12.com,category,0
-4,gotsoccer.com,,0.0775297655,496,6,1,http://www.gotsoccer.com,category,0
-5,localstack.com,,0.0545143815,2389,6,1,http://www.localstack.com,category,0
-6,kibin.com,,0.051999538000000005,676,6,1,http://www.kibin.com,category,0
-7,lewrockwell.com,,0.0442060983,4111,6,1,http://www.lewrockwell.com,category,0
-8,ssofficelocation.com,,0.041589,8,6,1,http://www.ssofficelocation.com,category,0
-9,keysnews.com,,0.038641494,39,6,1,http://www.keysnews.com,category,0
+,domain,url,category,prediction
+0,countryrebel.com,google.com,category,0
