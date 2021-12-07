@@ -1,6 +1,7 @@
 # always run 
 # export GOOGLE_APPLICATION_CREDENTIALS="/Users/Kunal/Downloads/Reporting-fb5b7e0aa2c7.json" 
 # before executing the script
+# test line
 
 
 """Command-line application to perform an asynchronous query in BigQuery.
